@@ -13,27 +13,9 @@
   <button (click)="vyberMenu(menu.VYPOZICKY)">Vypozicky</button>
 </div>
 
-<br>
-
-<div>
-  <button (click)="aktMenu2 = menu.OSOBY">Osoby</button>
-  <button (click)="aktMenu2 = menu.KNIHY">Knihy</button>
-  <button (click)="aktMenu2 = menu.VYPOZICKY">Vypozicky</button>
-</div>
-
-<br>
-
-<!-- <button (click)="skry()">Click me</button>  -->
 <div *ngIf="aktMenu == menu.OSOBY">
-  Názov: {{ title }}
-  <button (click)="pracuj()" [disabled]="zakaz">Ahoj</button>
-  <select (change)="pracuj()" [disabled]="zakaz">
-    <option>5</option>
-    <option>10</option>
-    <option>15</option>
-    <option>12</option>
-    <option>20</option>
-  </select>
+  <!-- <router-outlet></router-outlet> -->
+  <app-osoba-zoznam></app-osoba-zoznam>
 </div>
 
 <button (click)="disable()">Disable</button>
@@ -52,36 +34,3 @@
   </div>
 </form>
 
-<div>
-
-  <div *ngIf="aktMenu2 == menu.OSOBY">
-    <h1>Osoby</h1>
-    Meno: <input [(ngModel)]="osoba.meno"><br>
-    Priezvisko: <input [(ngModel)]="osoba.priezvisko">
-    <button (click)="pridajOsobu()">Pridaj</button>
-    <br>
-    Zoznam:<br>
-    <div *ngFor="let o of osoby">   <!-- premenna ktora sa dava nieco zo zoznamu a zoznam ktory prechadzame -->
-      Osoba: {{ o.meno }} {{o.priezvisko}}
-    </div>
-  </div>
-
-  <div *ngIf="aktMenu2 == menu.KNIHY">
-    <h1>Kniha</h1>
-    Názov: <input [(ngModel)]="kniha.nazov"><br>
-    Autor: <input [(ngModel)]="kniha.autor">
-    <button (click)="pridajKnihu()">Pridaj</button>
-    <br>
-    Zoznam:<br>
-      <!-- premenna ktora sa dava nieco zo zoznamu a zoznam ktory prechadzame -->
-      <table  class="table-kniha">
-        <tr *ngFor="let k of knihy">
-          <th>{{ k.nazov }}</th>
-          <th>{{k.autor}}</th>
-        </tr>
-      </table>
-
-  </div>
-
-  <div *ngIf="aktMenu2 == menu.VYPOZICKY">VYPOZICKY VYPOZICKY VYPOZICKY</div>
-</div>

@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import { Osoba } from './models/osoba.model';
 
+
+
+//importnut si osobu, zmenit pole z any na Osoba, vytvorit angular schematics -> component -> osoba-zoznam
+// Angular Schematics -> modue -> osoba --routing -> vytvorí aj rooty
+//Vytvorili sme aj app-routing module a pridali ho aj do imports v app.module.ts
 enum MENU {
   OSOBY,
   KNIHY,
@@ -45,15 +51,15 @@ export class AppComponent {
     this.zakaz = !this.zakaz;
   }
 
-  aktMenu2 = MENU.OSOBY;
   menu = MENU;
-  aktMenu = MENU.OSOBY;
-  public vyberMenu(x:MENU): void{
-    this.aktMenu = x;
+  aktMenu: MENU = MENU.OSOBY;
+  public vyberMenu(m: MENU): void{
+    this.aktMenu = m;
+
   }
 
   //zoznam
-  osoby: any = [];
+  osoby: Osoba[] = [];
   //objekt
   osoba = { meno: "Tomáš", priezvisko: "Peregrín"};
 
